@@ -20,28 +20,30 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
-public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder>{
-    ArrayList<TravelDeal> deals;
+public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder> {
+    ArrayList<CompanyItem> companies;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
     private ChildEventListener mChildListener;
-    private ImageView imageDeal;
+    private ImageView imageCompany;
 
-    public DealAdapter(){
-        FirebaseUtil.openFbReference("traveldeals");
+    public CompanyAdapter(){
+        FirebaseUtil.openFbReference("companies");
         mFirebaseDatabase = FirebaseUtil.mFirebaseDatabase;
         mDatabaseReference = FirebaseUtil.mDatabaseReference;
-        //deals = FirebaseUtil.mDeals;
+        companies = FirebaseUtil.mCompanyItems;
         mChildListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                TravelDeal td = snapshot.getValue(TravelDeal.class);
-                Log.d("Deal", td.getTitle());
-                td.setId(snapshot.getKey());
-                deals.add(td);
-                notifyItemInserted(deals.size() - 1);
+                CompanyItem ci = snapshot.getValue(CompanyItem.class);
+                Log.d("CompanyItem", ci.getName());
+                ci.setId(snapshot.getKey());
+                companies.add(ci);
+                notifyItemInserted(companies.size() - 1);
             }
 
             @Override
@@ -69,52 +71,48 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
 
     @NonNull
     @Override
-    public DealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CompanyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         View itemView = LayoutInflater.from(context)
                 .inflate(R.layout.rv_row, parent, false);
-        return new DealViewHolder(itemView);
+        return new CompanyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DealViewHolder holder, int position) {
-        TravelDeal deal = deals.get(position);
-        holder.bind(deal);
+    public void onBindViewHolder(@NonNull CompanyViewHolder holder, int position) {
+        CompanyItem item = companies.get(position);
+        holder.bind(item);
     }
 
     @Override
     public int getItemCount() {
-        return deals.size();
+        return companies.size();
     }
 
-    public class DealViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class CompanyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView tvTitle;
-        TextView tvDescription;
-        TextView tvPrice;
+        TextView tvName;
+        TextView tvAddress;
 
-        public DealViewHolder(@NonNull View itemView) {
+        public CompanyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvName);
-            tvDescription = (TextView) itemView.findViewById(R.id.tvAddress);
-            imageDeal = (ImageView) itemView.findViewById(R.id.imageDeal);
+            tvName = (TextView) itemView.findViewById(R.id.tvName);
+            tvAddress = (TextView) itemView.findViewById(R.id.tvAddress);
             itemView.setOnClickListener(this);
         }
 
-        public void bind(TravelDeal deal) {
-            tvTitle.setText(deal.getTitle());
-            tvDescription.setText(deal.getDescription());
-            tvPrice.setText(deal.getPrice());
-            showImage(deal.getImageUrl());
+        public void bind(CompanyItem item){
+            tvName.setText(item.getName());
+            tvAddress.setText(item.getAddress());
+            showImage(item.getImageUrl());
         }
 
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            Log.d("click", String.valueOf(position));
-            TravelDeal selectedDeal = deals.get(position);
-            Intent intent = new Intent(v.getContext(), DealActivity.class);
-            intent.putExtra("Deal", selectedDeal);
+            CompanyItem selectedItem = companies.get(position);
+            Intent intent = new Intent(v.getContext(), CompanyActivity.class);
+            intent.putExtra("Deal", selectedItem);
             v.getContext().startActivity(intent);
         }
 
@@ -124,7 +122,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
                         .load(url)
                         .resize(160, 160)
                         .centerCrop()
-                        .into(imageDeal);
+                        .into(imageCompany);
             }
         }
     }

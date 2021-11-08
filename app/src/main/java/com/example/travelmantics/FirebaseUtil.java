@@ -13,7 +13,7 @@ public class FirebaseUtil extends AppCompatActivity {
     public static FirebaseDatabase mFirebaseDatabase;
     public static DatabaseReference mDatabaseReference;
     private static FirebaseUtil firebaseUtil;
-    public static ArrayList<TravelDeal> mDeals;
+    public static ArrayList<CompanyItem> mCompanyItems;
     public static FirebaseStorage mStorage;
     public static StorageReference mStorageRef;
 
@@ -24,12 +24,12 @@ public class FirebaseUtil extends AppCompatActivity {
             firebaseUtil = new FirebaseUtil();
             mFirebaseDatabase = FirebaseDatabase.getInstance();
         }
-        mDeals = new ArrayList<TravelDeal>();
-        mDatabaseReference = mFirebaseDatabase.getReference().child("traveldeals");
+        mCompanyItems = new ArrayList<CompanyItem>();
+        mDatabaseReference = mFirebaseDatabase.getReference().child("companies");
         connectStorage();
     }
     public static void connectStorage() {
         mStorage = FirebaseStorage.getInstance();
-        mStorageRef = mStorage.getReference().child("deals_pictures/");
+        mStorageRef = mStorage.getReference().child("companies_pictures/");
     }
 }
