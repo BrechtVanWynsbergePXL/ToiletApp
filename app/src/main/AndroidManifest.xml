@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Travelmantics">
         <activity
-            android:name=".ListActivity"
+            android:name=".CompanyListActivity"
             android:exported="true">
 
             <intent-filter>

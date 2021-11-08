@@ -72,7 +72,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
     public DealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         View itemView = LayoutInflater.from(context)
-                .inflate(R.layout.rv_row, parent, false);
+                .inflate(R.layout.rv_row_company, parent, false);
         return new DealViewHolder(itemView);
     }
 
@@ -95,8 +95,8 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
 
         public DealViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvName);
-            tvDescription = (TextView) itemView.findViewById(R.id.tvAddress);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvIdentifier);
+            tvDescription = (TextView) itemView.findViewById(R.id.tvLocationDescription);
             imageDeal = (ImageView) itemView.findViewById(R.id.imageDeal);
             itemView.setOnClickListener(this);
         }
