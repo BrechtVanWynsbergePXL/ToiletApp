@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "53873081940",
+    "firebase_url": "https://travelmantics-fe305-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "travelmantics-fe305",
+    "storage_bucket": "travelmantics-fe305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53873081940:android:7f1c906bb509c7360df7c1",
+        "android_client_info": {
+          "package_name": "com.example.travelmantics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53873081940-gg0f7gdr046a43p7hqvhici559ljbrln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelmantics",
+            "certificate_hash": "d9dcfdb0f8ea9b28337eb5de36adb786394bebd9"
+          }
+        },
+        {
+          "client_id": "53873081940-plrcj0o0hbgfvgi98bcdkgltfn32jr6j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_xhAlkbm1ATVEaLe7B6QrJ_GkLnlj4i8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53873081940-plrcj0o0hbgfvgi98bcdkgltfn32jr6j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
