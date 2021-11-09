@@ -6,4 +6,6 @@
     <string name="save_menu">save</string>
     <string name="delete_deal">Delete deal</string>
     <string name="add_new_company">Add new company</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_address">Company Address</string>
 </resources>

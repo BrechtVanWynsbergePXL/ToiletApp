@@ -47,7 +47,7 @@ public class CompanyListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.insert_menu:
-                Intent intent = new Intent(this, CompanyItem.class);
+                Intent intent = new Intent(this, CompanyActivity.class);
                 startActivity(intent);
                 return true;
         }

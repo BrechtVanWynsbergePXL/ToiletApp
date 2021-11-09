@@ -20,10 +20,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DealActivity"
+            android:name=".CompanyActivity"
             android:exported="true">
-
         </activity>
+
     </application>
 
 </manifest>

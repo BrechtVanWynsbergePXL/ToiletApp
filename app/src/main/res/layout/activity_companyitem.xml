@@ -3,60 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DealActivity">
-
+    android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/txtTitle"
+        android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/text_margin_standard"
         android:layout_marginStart="@dimen/text_margin_standard"
         android:layout_marginTop="@dimen/text_margin_large"
-        android:hint="@string/title_hint"
+        android:inputType="textPersonName"
+        android:text="@string/company_name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtPrice"
+        android:id="@+id/txtAddress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/text_margin_standard"
-        android:layout_marginStart="@dimen/text_margin_standard"
-        android:layout_marginTop="@dimen/text_margin_standard"
-        android:hint="@string/price_hint"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
-
-    <EditText
-        android:id="@+id/txtDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/text_margin_standard"
-        android:layout_marginStart="@dimen/text_margin_standard"
-        android:layout_marginTop="@dimen/text_margin_standard"
-        android:hint="@string/description_hint"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrice" />
-
-    <Button
-        android:id="@+id/btnImage"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/text_margin_standard"
         android:layout_marginStart="@dimen/text_margin_standard"
         android:layout_marginTop="@dimen/text_margin_large"
-        android:text="Upload Image"
+        android:inputType="textPersonName"
+        android:text="@string/company_address"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+    <Button
+        android:id="@+id/buttonImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_standard"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="@dimen/text_margin_standard"
+        android:text="Upload Company Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddress" />
 
     <ImageView
         android:id="@+id/image4"
@@ -68,7 +56,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnImage"
+        app:layout_constraintTop_toBottomOf="@+id/buttonImage"
         app:srcCompat="@drawable/ic_launcher_background"
         tools:srcCompat="@android:drawable/screen_background_dark_transparent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
